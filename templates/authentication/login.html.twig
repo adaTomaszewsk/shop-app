@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('/assets/css/authenticationCSS.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+    <div class="contentInRow">
+        <h1 class="styleActive">Zaloguj się</h1>
+        &nbsp;
+        &nbsp;
+        <h1> / </h1>
+        &nbsp;
+        &nbsp;
+        <a href={{ path('app_registration') }} class="style">
+
+            <h1> Zarejestruj się</h1>
+        </a>
+    </div>
+
+    <form class='contentInColumn' action="{{ path('app_login') }}" method="post">
+        <label for="username">Email:</label>
+        <input class='inputDecoration' type="text" id="username" name="_username" value="{{ last_username }}">
+        <br>
+        <label for="password">Password:</label>
+        <input class='inputDecoration' type="password" id="password" name="_password">
+
+        {# If you want to control the URL the user is redirected to on success
+        <input type="hidden" name="_target_path" value="/account"> #}
+        <button class='buttonDecoration' type="submit">login</button>
+    </form>
+{% endblock %}

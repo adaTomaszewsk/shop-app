@@ -7,6 +7,7 @@ use App\Form\Type\RegisterType;
 use App\Form\Type\UserType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -61,5 +62,13 @@ class AuthenticationController extends AbstractController
             'last_username' => $lastUsername,
             'error'         => $error,
         ]);
+    }
+
+    #[Route('/logout', name: 'app_logout')]
+    public function  logout(Security $security): Response
+    {
+        $security->logout();
+
+        return $this->redirectToRoute('app_login');
     }
 }

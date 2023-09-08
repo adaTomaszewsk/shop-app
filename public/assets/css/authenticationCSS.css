@@ -21,6 +21,10 @@
     text-decoration: underline;
 }
 
+.centerText{
+    align-items: center;
+}
+
 .inputDecoration{
     border-radius: 12.0px;
     margin: 10px;

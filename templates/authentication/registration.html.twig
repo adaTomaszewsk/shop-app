@@ -5,31 +5,34 @@
 {% endblock %}
 
 {% block body %}
-
-    <div class="contentInRow">
-        <a href={{ path('app_login') }} class="style">
-            <h1>Zaloguj się</h1>
-        </a>
-        &nbsp;
-        &nbsp;
-        <h1> / </h1>
-        &nbsp;
-        &nbsp;
-            <h1 class="styleActive"> Zarejestruj się</h1>
-    </div>
-
-    <div class="contentInColumn">
-        <form method="post">
-            {{ form_row(form._token) }}
-            <p>{{ form_label(form.email) }}</p>
-            <div>{{ form_widget(form.email) }}</div>
-            <br><br>
-            {{ form_label(form.password) }}
-            <br>
-            {{ form_widget(form.password) }}
-            <br><br>
-            <button type="reset">Reset</button>
-            <button type="submit">Register</button>
-        </form>
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center">
+                <h1>
+                    <a href={{ path('app_login') }} class="style">
+                        Zaloguj się
+                    </a>
+                    /
+                    <span class="styleActive">Zarejestruj się</span>
+                </h1>
+            </div>
+            <div class="card-body row text-center">
+                <form class='contentInColumn' action="{{ path('app_registration') }}" method="post">
+                    <div class="col-12 mb-3">
+                        <label for="username">Email:</label>
+                        <input class='form-control' type="text" id="username" name="_username" placeholder="E-mail">
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label for="password">Password:</label>
+                        <input class='form-control' type="password" id="password" name="_password" placeholder="Password">
+                    </div>
+                    <div class="col-12">
+{#                   / <button class='btn btn-success' type="submit">login</button>#}
+                        <button class='btn btn-outline-secondary' type="reset">Reset</button>
+                        <button class='btn btn-outline-success' type="register">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 {% endblock %}

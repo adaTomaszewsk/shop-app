@@ -25,7 +25,6 @@ class AuthenticationController extends AbstractController
     #[Route('/registration', name: 'app_registration')]
     public function index(UserPasswordHasherInterface $passwordHasher, Request $request): Response
     {
-
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
 
@@ -49,13 +48,9 @@ class AuthenticationController extends AbstractController
         ]);
     }
     #[Route('/login', name:'app_login')]
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(): Response
     {
-        $lastUsername= $authenticationUtils->getLastUsername();
-
-        return $this->render('authentication/login.html.twig', [
-            'last_username' => $lastUsername,
-        ]);
+        return $this->render('authentication/login.html.twig');
     }
 
     #[Route('/logout', name: 'app_logout')]

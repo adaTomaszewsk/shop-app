@@ -1,0 +1,29 @@
+<div class='product-card'>
+    <div class="card" style="width: 18rem;">
+        <div class="container">
+            <img src="{{ asset(product.image ? product.image : 'assets/images/placeholder.png') }}" class="card-img-top"/>
+            {% if product.discounts %}
+                <div class="top-left">-{{product.discounts}}%</div>
+            {% endif %}
+        </div>
+        <div class="card-body">
+            <h5 class='cardTitle card-title'>{{ product.name|upper }}</h5>
+            {% if product.discounts %}
+                <div class="rowContainer">
+                    {% set newPrice = product.getPriceAfterDiscount(product.price, product.discounts) %}
+                    <span class="card-text discount-price">{{ newPrice|number_format('2', ',', ' ') }}zł</span>
+                    
+                    <span class="card-text ms-2" style="text-decoration: line-through;">{{ product.price|number_format('2', ',', ' ') }}zł</span>
+                </div>
+            {% else %}
+                <p class="card-text">{{ product.price|number_format('2', ',', ' ') }}zł</p>
+            {% endif %}
+            <div class="rowContainer">
+                <a href="#" class="btn btn-primary buttonDecoration">
+                Dodaj do koszyka
+                <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+  </div>
+</div>

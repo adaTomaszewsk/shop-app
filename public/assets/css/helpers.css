@@ -1,0 +1,43 @@
+.product-card .columnContainer {
+    display: flex;
+    /* flex-direction: column; */
+    padding: 10px;
+
+}
+
+.rowContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-card .cardTitle {
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+.discount-price{
+    color:red;
+    font-size: 1.3rem;
+}
+
+.top-left {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #db380f;
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.buttonDecoration{
+    margin-top: 20px;
+    background-color: black;
+    border-color: darkgray;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

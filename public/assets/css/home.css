@@ -1,0 +1,28 @@
+.title{
+ color: grey;
+ letter-spacing: 1rem;
+ margin: 10px;
+ font-size: 30px;
+ font-family: Arial, sans-serif;
+}
+
+.iconTheme{
+    color: grey;
+    text-align: bottom;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+}
+
+.rowContainerTop{
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+
+.mariginContainer{
+    margin: 20px;
+}
+
+svg.dropdown-toggle:hover{
+    cursor: pointer;
+}
